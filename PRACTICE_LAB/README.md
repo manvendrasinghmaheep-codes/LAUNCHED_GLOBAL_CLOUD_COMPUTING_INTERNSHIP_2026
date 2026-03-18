@@ -142,7 +142,14 @@ An instance in cloud computing refers to a virtual server that runs applications
 
 Cloud providers offer various instance families designed for specific use cases. General purpose instances (M, T) provide balanced resources, compute optimized instances (C) are designed for high-performance processing, memory optimized instances (R, X) handle large datasets, storage optimized instances (D, H) support high disk throughput, and accelerated computing instances (P, G, F) are used for machine learning and graphics-intensive tasks.
 
+## AWS ENVIRONMENT SETUP
+After gaining initial exposure to fundamental, technical and historical aspects of cloud computing it was the time for me to move towards my first hands on practical on Amazon Web Services (AWS), which began with the creation of my aws account and exploring it's dashboard section with the help of AWS Management Console which serves as central interface for all cloud services.
 
+<p align="center">
+  <img src="PRACTICE_LAB/LAB_SCREENSHOTS/" width="800"/>
+</p>
+
+<p align="center"><em>Figure 1: AWS Management Console dashboard displaying core services and navigation panel.</em></p>
 # KEY LEARNINGS
 
 The lab sessions played a transformative role in shaping both my technical foundation and problem-solving mindset in cloud computing. Through hands-on interaction with cloud services, I developed a clear understanding of how virtual infrastructure is configured and managed in real-time environments. Working with different operating systems and executing commands at the system level enhanced my confidence in navigating cloud-based resources independently. More importantly, I learned how to approach errors logically, analyze configurations, and resolve issues through iterative debugging rather than relying solely on theoretical knowledge.
