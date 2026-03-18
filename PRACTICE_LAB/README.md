@@ -145,12 +145,53 @@ Cloud providers offer various instance families designed for specific use cases.
 ## AWS ENVIRONMENT SETUP
 After gaining initial exposure to fundamental, technical and historical aspects of cloud computing it was the time for me to move towards my first hands on practical on Amazon Web Services (AWS), which began with the creation of my aws account and exploring it's dashboard section with the help of AWS Management Console which serves as central interface for all cloud services.
 
+
 <p align="center">
-  <img src="PRACTICE_LAB/LAB_SCREENSHOTS/" width="800"/>
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/AWS%20Account%20Creation.png" width="800"/>
 </p>
 
 <p align="center"><em>Figure 1: AWS Management Console dashboard displaying core services and navigation panel.</em></p>
+
+
+### AWS ACCOUNT CREATION 
+#### HERE ARE THE STEPS BY WHICH MY ACCOUNT WAS CREATED AND PROTECTED:
+IT IS RECOMMENDED TOO USE LAPTOP FOR PROPER AWS CONSOLE, HOSTING AND REMOTE ACCESS.
+
+* STEP 1 - USING MY GMAIL ID.
+* STEP 2 - STRONG USER ROOT PAASWORD.
+* STEP 3- ADDING PAYMENT METHODS.
+* STEP 4- ENTER OTHER NECESSARY FIELDS AND CREATE YOUR FREE TIER AWS ACCOUNT.
+
+Now after creating aws account it is necessary to make is secure and though most of the services are covered under free tier it is generally advised to to enable billing and free tier alerts on as safe practice. Users must enable MFA ( Multi Factor Authentication) using services like Google Authenticator. Also after MFA most of the people jump directly to use aws services but it is recommended to create IAM user by:
+
+* STEP 1 - SEARCH IAM ON CONSOLE.
+* STEP 2 - ON LEFT SIDE GO TOWARDS USERS AND CREATE USERS.
+* STEP 3 - TICK AWS MANAGEMENT CONSOLE ACCESS AND PROVIDE OR GENERATE PASSWORD.
+* STEP 4 - IN POLICIES SELECT ADMINISTRATOR ACCESS THEN CREATE.
+* STEP 5 - SAVE LOGIN CREDENTIALS AND IF POSSIBLE ADD MFA TO IT ALSO.
+
+AFTER SUCCESSFUL CREATION OF MY AWS ACCOUNT THIS WAS MY DASHBOARD:
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/AWS%20Dashboard.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: My AWS Dashboard displaying health, cost, recent and other app bars.</em></p>
+
+#### In the upcoming sections I would be explaining in detail about launching or running EC2 instances and conguring them as web server on cloud.
+
+## EC2 WINDOWS INSTANCE
+
+
+## EC2 LINUX INSTANCE
+
+
+
+## EC2 UBUNTU INSTANCE
+
+
 # KEY LEARNINGS
+
 
 The lab sessions played a transformative role in shaping both my technical foundation and problem-solving mindset in cloud computing. Through hands-on interaction with cloud services, I developed a clear understanding of how virtual infrastructure is configured and managed in real-time environments. Working with different operating systems and executing commands at the system level enhanced my confidence in navigating cloud-based resources independently. More importantly, I learned how to approach errors logically, analyze configurations, and resolve issues through iterative debugging rather than relying solely on theoretical knowledge.
 
