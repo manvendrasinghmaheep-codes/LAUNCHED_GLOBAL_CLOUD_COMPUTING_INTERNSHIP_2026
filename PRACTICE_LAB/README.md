@@ -158,16 +158,23 @@ After gaining initial exposure to fundamental, technical and historical aspects 
 IT IS RECOMMENDED TOO USE LAPTOP FOR PROPER AWS CONSOLE, HOSTING AND REMOTE ACCESS.
 
 * STEP 1 - USING MY GMAIL ID.
+ 
 * STEP 2 - STRONG USER ROOT PAASWORD.
+ 
 * STEP 3- ADDING PAYMENT METHODS.
+
 * STEP 4- ENTER OTHER NECESSARY FIELDS AND CREATE YOUR FREE TIER AWS ACCOUNT.
 
 Now after creating aws account it is necessary to make is secure and though most of the services are covered under free tier it is generally advised to to enable billing and free tier alerts on as safe practice. Users must enable MFA ( Multi Factor Authentication) using services like Google Authenticator. Also after MFA most of the people jump directly to use aws services but it is recommended to create IAM user by:
 
 * STEP 1 - SEARCH IAM ON CONSOLE.
+
 * STEP 2 - ON LEFT SIDE GO TOWARDS USERS AND CREATE USERS.
+
 * STEP 3 - TICK AWS MANAGEMENT CONSOLE ACCESS AND PROVIDE OR GENERATE PASSWORD.
+
 * STEP 4 - IN POLICIES SELECT ADMINISTRATOR ACCESS THEN CREATE.
+
 * STEP 5 - SAVE LOGIN CREDENTIALS AND IF POSSIBLE ADD MFA TO IT ALSO.
 
 AFTER SUCCESSFUL CREATION OF MY AWS ACCOUNT THIS WAS MY DASHBOARD:
@@ -188,16 +195,26 @@ AFTER SUCCESSFUL CREATION OF MY AWS ACCOUNT THIS WAS MY DASHBOARD:
 
 
 * Step 1: Search EC2 in the dashboard search box.
+
 * Step 2: Then click on the launch instance button.
+
 * Step 3: CHOOSE CONFIGURATION name as of your choice.
-* Step 4: Select AMI as windows server 2019/2022 base
+
+* Step 4: Select AMI as windows server 2019/2022 base.
+
 * Step 5: Choose instance type as t2.micro.
+
 * Step 6: This is a important step. Click on create new pair. Enter suitable name, choose type RSA and format as .pem.
+
 * Step 7: Download the key ans store it in the safe place.
+
 * Step 8: Under network settings allow RDP 3389 and allow HHTTP/HTTPS options available.
+
 * Step 9: Choose storage as default or upon of your choice.
+
 * Step 10: Press launch and wait.
 
+NOTE: NEVER CREATE TWO EC2 INSTANCES AT THE SAME TIME, MAKE SURE TO DELETE THE FIRST ONE BEFORE CREATING THE SECOND ONE.
 
 ---
 
@@ -213,16 +230,63 @@ AFTER SUCCESSFUL CREATION OF MY AWS ACCOUNT THIS WAS MY DASHBOARD:
 
 ### RDP CONNECTION 
 
-THIS SECTION TOOK A LOT OF TIME IN TROUBLESHOOTING FOR ALMOST 4 HOURS AS I COULD NOT FIGURE OUT EXACT REASON WHAT IS CAUSING THE PROBLEMS. I TRIED AND LOOKED UPON VARIOUS SECURITY GROUP SETTINGS SUCH AS CHECKING INBOUND TCP 3389 FROM MY CURRENT IP AND MAKING SURE MY INSTANCES HAS PUBLIC IPV4 ADDRESS. I ALSO CHECK SUBNET ASSOCIATED 
+THIS SECTION TOOK A LOT OF TIME IN TROUBLESHOOTING FOR ALMOST 4 HOURS AS I COULD NOT FIGURE OUT EXACT REASON WHAT IS CAUSING THE PROBLEMS. I TRIED AND LOOKED UPON VARIOUS SECURITY GROUP SETTINGS SUCH AS CHECKING INBOUND TCP 3389 FROM MY CURRENT IP AND MAKING SURE MY INSTANCES HAS PUBLIC IPV4 ADDRESS. I ALSO CHECKED EVERYTHING EVEN DELETED AND RE-CREATED MY WINDOWS INSTANCE BUT I COULD NOT FIND THE EXACT REASON. IT WAS THEN I GOT TO KNOW THAT MY COLLEGE WIFI HAS SOPHOS FIREWALL INSTALLED WHICH CAUSED THE BLOCKING OF MY TCP 3389 PORT WHICH IS USED BY REMOTE DESKTOP PROTOCOL. I THEN USED MY MOBILE DATA TO ACCESS IT AND IT WORKED PERFECTLY FINE. 
+
 
 NOW FOLLOW THESE STEPS-
 * Step 1: Go to EC2 Dashboard look for instances box and click on your instance.
+
 * Step 2: Click connect in top panel.
+
 * Step 3: Click on get password.
-* Step 4: Upload .pem key which you have dwonloaded while creating instance.
+
+* Step 4: Upload .pem key which you have downloaded while creating instance.
+
 * Step 5: It will decrypt the password automatically and then download the RDP file.
+
 * Step 6: Open it and login. For the first time it will give warning but click on yes.
-* 
+
+* Step 7: Enter username mostly it is Administrator.
+
+* Step 8: Copy paste the password which you have recieved.
+
+* Step 9: Click connect and you will enter inside your server.
+
+* Step 10: Activities on servers does  not reflect in your main system.
+
+### TOWARDS IIS SHOWCASING
+
+Now, after entering the server we can configure it as a web server, go to your instance and copy-paste the IPV4 address in your main system browser. You must have got could not connect to server error. Actually, it takes different path to make this configuration. For simplicity, I have just tried to showcase the windows IIS page.
+
+---
+
+* Step 1: Using the same method of RDP connection of your server enter inside of it.
+
+* Step 2: Now, go to search bar and type server manager.
+
+* Step 3: A dashboard will be opened, now go towards add roles section.
+
+* Step 4: Now click next, next and another next to let the default congurations as it is.
+
+* Step 5: Set the WEB IIS from the menu and add required features.
+
+* Step 6: Fnally click install and wait for 5 minutes.
+
+* Step 7: Go back to your system and refresh the browser of your ipv4 address and your must see a page like shown below.
+
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/Configuration%20of%20WIndows%20IIS%20Services.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 4: This is my system's browser where i have entered the IPV4 address of my EC2 instances and then IIS page appeared. Even if i turn my system off the page will continue to work as it is hosted from AWS server not my local system.</em></p>
+
+---
+
+#### This lab provided a strong practical understanding of launching, configuring, and accessing cloud-based virtual machines. It also introduced real-world troubleshooting scenarios, emphasizing the importance of network configurations, security rules, and environment-specific constraints while working in cloud infrastructure.
+
+
+---
 ## EC2 LINUX INSTANCE
 
 
