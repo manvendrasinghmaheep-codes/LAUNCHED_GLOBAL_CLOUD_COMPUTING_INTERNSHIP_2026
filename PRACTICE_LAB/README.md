@@ -183,6 +183,46 @@ AFTER SUCCESSFUL CREATION OF MY AWS ACCOUNT THIS WAS MY DASHBOARD:
 ## EC2 WINDOWS INSTANCE
 
 
+### FOLLOW THESE STEPS-
+
+
+
+* Step 1: Search EC2 in the dashboard search box.
+* Step 2: Then click on the launch instance button.
+* Step 3: CHOOSE CONFIGURATION name as of your choice.
+* Step 4: Select AMI as windows server 2019/2022 base
+* Step 5: Choose instance type as t2.micro.
+* Step 6: This is a important step. Click on create new pair. Enter suitable name, choose type RSA and format as .pem.
+* Step 7: Download the key ans store it in the safe place.
+* Step 8: Under network settings allow RDP 3389 and allow HHTTP/HTTPS options available.
+* Step 9: Choose storage as default or upon of your choice.
+* Step 10: Press launch and wait.
+
+
+---
+
+
+* AFTER THE CREATION OF WINDOWS EC2 INSTANCE AGAIN GO BACK TO EC2 DASHBOARD AND YOU MUST SEE YOUR INSTANCE AND THEN WAIT AND REFRESH UNTIL YOU SEE 3/3 CHECK PASSED, STATUS RUNNING AND A PUBLIC IPV4 ADDRESS ASSOCIATED WITH IT. REFER THESE IMAGES.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/EC2%20Windows%20Instance.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 3: My EC2 instance section showing my newly created windows EC2 instances along with its IPV4 address and running status.</em></p>
+
+
+### RDP CONNECTION 
+
+THIS SECTION TOOK A LOT OF TIME IN TROUBLESHOOTING FOR ALMOST 4 HOURS AS I COULD NOT FIGURE OUT EXACT REASON WHAT IS CAUSING THE PROBLEMS. I TRIED AND LOOKED UPON VARIOUS SECURITY GROUP SETTINGS SUCH AS CHECKING INBOUND TCP 3389 FROM MY CURRENT IP AND MAKING SURE MY INSTANCES HAS PUBLIC IPV4 ADDRESS. I ALSO CHECK SUBNET ASSOCIATED 
+
+NOW FOLLOW THESE STEPS-
+* Step 1: Go to EC2 Dashboard look for instances box and click on your instance.
+* Step 2: Click connect in top panel.
+* Step 3: Click on get password.
+* Step 4: Upload .pem key which you have dwonloaded while creating instance.
+* Step 5: It will decrypt the password automatically and then download the RDP file.
+* Step 6: Open it and login. For the first time it will give warning but click on yes.
+* 
 ## EC2 LINUX INSTANCE
 
 
