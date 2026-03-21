@@ -287,6 +287,7 @@ Now, after entering the server we can configure it as a web server, go to your i
 
 
 ---
+
 ## EC2 LINUX INSTANCE
 
 ### FOLLOW THESE STEPS SIMILAR TO WINDOWS-
@@ -295,6 +296,15 @@ Now, after entering the server we can configure it as a web server, go to your i
 * Step 1: Search EC2 in the dashboard search box.
 
 * Step 2: Then click on the launch instance button.
+
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/EC2%20Linux%20Instance.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 5: Basic settings and conguration page before you can launch your linux instance. Must remember to allow port 22 which later can help you to connect to your instance.</em></p>
+
+
 
 * Step 3: CHOOSE CONFIGURATION name as of your choice.
 
@@ -316,6 +326,12 @@ NOTE: NEVER CREATE TWO EC2 INSTANCES AT THE SAME TIME, MAKE SURE TO DELETE THE F
 
 Before moving towards next steps, copy-paste the public IPV4 address of your linux instance in another tab of your browser and make sure if using wifi that it SHOULD NOT block remote connections.
 
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/Linux%20SERVER%20inside.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 6: You can also see your newly newly created instance by going into instance diagnostics.</em></p>
+
 ---
 
 ### CONNECT USING SSH
@@ -330,18 +346,29 @@ Moving towards next steps-
 
 * Step 2: Now you have to locate the location of your keys.
 
-* Step 3: By default, all your downloads must come to Downloads section of your device. Run these commands to confirm.
+* Step 3: By default, all your downloads must come to Downloads section of your device.
+Run these commands to confirm.
 
 * Step 4: TYPE cd Downloads press enter then type dir again press enter you must see yor downloaded key pair.
 
 * Step 5: Copy paste your SSH connection from your ec2 instances by going to ssh clients tab.
 It could start like this (ssh -i yourkey.....) .
 
-* Step 6: A prompt will come Are you sure you wan to continue connecting? Just press yes and enter.
+* Step 6: A prompt will come Are you sure you wan to continue connecting?
+Just press yes and enter.
 
-* Step 7: The connection might get closed at this step. Repeat the above steps and this time just your ssh -i... command and press enter.
+* Step 7: The connection might get closed at this step.
+Repeat the above steps and this time just your ssh -i... command and press enter.
 
 * Step 8: A window will apper AMAZON LINUX 2023 and final line [ec2-user... ] which shows you are inside your linux server.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/Entering%20Linux%20instances%20through%20terminal.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 7: This is how you you would be entering inside your linux server from your command prompt now you can try thse commands or directly jump to make this as a web server using APACHE.</em></p>
+
+---
 
 
 ### IMPORTANT LINUX COMMANDS YOU CAN TRY 
@@ -369,9 +396,179 @@ It could start like this (ssh -i yourkey.....) .
 
 ### RUNNING WEB SERVICE ON YOUR LINUX INSTANCE
 
+Firstly, make sure your linux instance has public IPV4 address which it should have if you have followed right instructions. Now, copy-paste the the public IPV4 address of your instance in youur new tab of your browser and refresh for which it will show this site can't be reached.
 
+##### After this follow these steps-
+
+* Step 1: In security tab of your instance look for security group and add this rule-
+TYPE - HTTP
+PORT - 80
+SOURCE - 0.0.0.0/0
+
+* Step 2: Update your system:
+sudo yum update -y
+
+* Step 3: Install apache:
+sudo yum install httpd -y
+
+* Step 4: Start apache:
+sudo systemctl start httpd
+
+* Step 5: Auto enable it:
+sudo systemctl enable httpd
+
+* Step 6: Check status: IF IT SHOWS RUNNING YOU ARE DOING WELL !!
+sudo systemctl status httpd
+
+TILL THIS POINT YOUR WEB SERVER HAS STARTED WORKING AND IT WILL SHOW DEFAULT IT WORKS ! PAGE. NOW YOU CAN DISPLAY YOUR OWN MESSAGE ON YOUR SERVER USING THIS.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/Linux%20APACHE%20SERVER%201.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 8: If you have followed right commands then you would see your apache default page showing It Works ! You can edit this message also..</em></p>
+
+* Step 7: echo "Enter your message" | sudo tee /var/www/html/index.html
+ 
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/CODE%20to%20configure%20APACHE.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 9: Code to configure your linux instance as a web server.</em></p>
+
+REFRESH YOUR IPV4 BROWSER PAGE AND YOUR MESSAGE WILL APPEAR LIKE MINE. :)
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/Linux%20APACHE%20SERVER%202.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 10: After fully editing your your default page with your custom messsage you would see it. In my case I have written it in hindi for fun. Also even if I would have closed my laptop then this message would still be there.</em></p>
+
+##### NOW DELETE YOUR LINUX INSTANCE AND MOVE ON TO YOUR UBUNTU INSTANCE.
+
+---
 
 ## EC2 UBUNTU INSTANCE
+
+### FOLLOW THESE STEPS SIMILAR TO WINDOWS AND LINUX AND LAUNCH UBUNTU INSTANCE-
+
+* Step 1: Search EC2 in the dashboard search box.
+
+* Step 2: Then click on the launch instance button.
+
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/EC2%20Ubuntu%20Server.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 11: The instance page for your ubuntu server looks almost same of youur windows and linux server. Just select right network settings and you are good to proceed next.</em></p>
+
+
+* Step 3: CHOOSE CONFIGURATION name as of your choice.
+
+* Step 4: Select AMI as Ubuntu.
+
+* Step 5: Choose instance type as t2.micro.
+
+* Step 6: This is a important step. THIS TIME YOU DON'T NEED NEW KEY PAIR JUST USE THE KEY PAIR YOU USED FOR WINDOWS INSTANCE.
+
+* Step 7: Allow SSH PORT 22 and 80 with source anywhere 0.0.0.0/0.
+
+* Step 8: Under network settings allow HHTTP/HTTPS options available.
+
+* Step 9: Choose storage as default or upon of your choice.
+
+* Step 10: Press launch and wait.
+
+---
+
+### CONFIGURATION OF UBUNTU WEB SERVER
+
+##### WE ARE GOING TO PROCEED DIRECTLY FROM CLOUDSHELL OF AWS FROM TOP CENTRE PART OF YOUR DASHBOARD TO CONNECT TO IT. 
+
+* Step 1: Enter the SSH command or copy-paste it.
+ssh -i yourkey.pem..... and then proceed.
+
+* Step 2: You will be asked are you sure you want to continue cnnecting ?
+Enter YES and proceed.
+
+YOU MUST SEE WELCOME TO UBUNTU TYPE MESSAGE LIKE THIS.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/Entering%20Ubuntu%20directly%20from%20cloudshell.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 12:DON'T FORGET TO FIRSTLY LOCATE YOUR KEY THEN TO ADD. After which your will a big message like this appears for you- WELCOME !!</em></p>
+
+* Step 3: After successful login, update your system-
+sudo apt update && sudo apt upgrade -y
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/APACHE%20Ubuntu%20configuration%20code%201.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 13: CONFIGURING UBUNTU SERVER.</em></p>
+
+* Step 4: Install apache:
+sudo apt install system -y
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/APACHE%20Ubuntu%20configuration%20code%202.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 14: MAKE SURE YOU ENTER CORRECT COMMANDS.</em></p>
+
+* Step 5: Start apache and enable it -
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/APACHE%20Ubuntu%20configuration%20code%203.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 15: FINALLY APACHE WORK WOULD HAVE BEEN DONE.</em></p>
+
+YOUR DEFAULT APACHE PAGE WILL APPEAR LIKE THIS. 
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/APACHE%20ubuntu%20default%20page.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 16: This is your default apache page which we will change and display our simple custom message.</em></p>
+
+---
+
+### * Step 6: MOST IMPORTANT LAST STEP -
+
+cd /var/www/html
+
+* DELETE THE DEFAULT FILE -
+sudo rm index.html
+
+* CREATE NEW FILE -
+sudo nano index.html
+
+* NANO TEXT EDITOR WILL BE OPENED NOW WRITE LIKE THIS AND FOLOW THESE COMMANDS -
+
+YOU NOW HAVE TO ENTER YOUR CUSTOM HTML MESSAGE- 
+
+* TRY USING OTHER HTML TAGS TO PLAY ALONG .
+
+DONE !!.
+
+NOW do CTRL + 0 AND CTRL + X.
+
+#### GO TO YOUR IPV4 ADDRESS AND REFRESH WINDOW AND SEE YOUR MESSAGE LIVE ON CLOUD.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/PRACTICE_LAB/LAB_SCREENSHOTS/My%20message%20on%20ubuntu%20server.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 17: This was my message on my ubuntu server you can try yours too using html commands on nano editor.</em></p>
+
+---
 
 
 # KEY LEARNINGS
