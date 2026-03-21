@@ -289,7 +289,44 @@ Now, after entering the server we can configure it as a web server, go to your i
 ---
 ## EC2 LINUX INSTANCE
 
+### FOLLOW THESE STEPS SIMILAR TO WINDOWS-
 
+
+* Step 1: Search EC2 in the dashboard search box.
+
+* Step 2: Then click on the launch instance button.
+
+* Step 3: CHOOSE CONFIGURATION name as of your choice.
+
+* Step 4: Select AMI as amazon linux 2023.
+
+* Step 5: Choose instance type as t2.micro.
+
+* Step 6: This is a important step. THIS TIME YOU DON'T NEED NEW KEY PAIR JUST USE THE KEY PAIR YOU USED FOR WINDOWS INSTANCE.
+
+* Step 7: Allow SSH PORT 22 and source anywhere 0.0.0.0/0.
+
+* Step 8: Under network settings allow HHTTP/HTTPS options available.
+
+* Step 9: Choose storage as default or upon of your choice.
+
+* Step 10: Press launch and wait.
+
+NOTE: NEVER CREATE TWO EC2 INSTANCES AT THE SAME TIME, MAKE SURE TO DELETE THE FIRST ONE BEFORE CREATING THE SECOND.
+
+Before moving towards next steps, copy-paste the public IPV4 address of your linux instance in another tab of your browser and make sure if using wifi that it SHOULD NOT block remote connections.
+
+---
+
+### CONNECT USING SSH
+
+#### The best and easiest method is to use Command Prompt(CMD) of your device. It is so because you don't need to download anything it is built-in your device and ready to use. Though it was recommended to me to use XSHELL but it is generally better when to handle multiple session and you want GUI. For beginners, you can try CMD first.
+
+---
+
+Moving towards next steps-
+
+* Step 1: Open CMD 
 
 ## EC2 UBUNTU INSTANCE
 
