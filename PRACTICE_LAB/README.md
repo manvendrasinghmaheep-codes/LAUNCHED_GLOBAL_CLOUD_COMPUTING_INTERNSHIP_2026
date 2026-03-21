@@ -326,7 +326,50 @@ Before moving towards next steps, copy-paste the public IPV4 address of your lin
 
 Moving towards next steps-
 
-* Step 1: Open CMD 
+* Step 1: Open CMD of your device.
+
+* Step 2: Now you have to locate the location of your keys.
+
+* Step 3: By default, all your downloads must come to Downloads section of your device. Run these commands to confirm.
+
+* Step 4: TYPE cd Downloads press enter then type dir again press enter you must see yor downloaded key pair.
+
+* Step 5: Copy paste your SSH connection from your ec2 instances by going to ssh clients tab.
+It could start like this (ssh -i yourkey.....) .
+
+* Step 6: A prompt will come Are you sure you wan to continue connecting? Just press yes and enter.
+
+* Step 7: The connection might get closed at this step. Repeat the above steps and this time just your ssh -i... command and press enter.
+
+* Step 8: A window will apper AMAZON LINUX 2023 and final line [ec2-user... ] which shows you are inside your linux server.
+
+
+### IMPORTANT LINUX COMMANDS YOU CAN TRY 
+
+* TO SEE YOUR CURRENT LOCATION: pwd
+
+* TO SEE FILES AND FOLDERS INSIDE IT: ls
+
+* TO GO INSIDE A FOLDER: cd folder_name
+
+* TO GO ONE STEP BACK: cd ..
+
+* FOR ROOT: cd /
+
+* FOR HOME: cd -
+
+* TO CREATE NEW FOLDER: mkdir folder_name
+
+* TO CREATE A NEW FILE: touch file1.txt
+
+* TO SEE INSIDE THE FILE: cat file1.txt
+
+---
+
+
+### RUNNING WEB SERVICE ON YOUR LINUX INSTANCE
+
+
 
 ## EC2 UBUNTU INSTANCE
 
