@@ -14,6 +14,66 @@ Ultimately, this project represents more than just a technical implementation—
 
 # PROBLEM STATEMENT: THE CHAOS OF MANUAL PROCESSING
 
+#### The objective of my minor probject is to design and implement a pipeline that automatically resizes an image whenever a new image is uploaded to an Amazon S3 bucket.
+
+The system must use:
+* Amazon S3
+* AWS Lambda
+* Amazon EventBridge
+
+#### My task is to build a solution where:
+
+* A user/server uploads an image into an S3 bucket.
+
+* The upload event triggers a Lambda function.
+
+* The Lambda function resizes the image (e.g., 1080x1080 or 50% reduction, anything can be done).
+
+* The resized image is stored in a separate S3 bucket.
+
+* Logs must be generated in CloudWatch.
+
+ ### The Architecture Requirements are:
+
+* #### S3 → EventBridge → Lambda
+
+### The Functional Requirements are:
+
+The system must:
+
+* Accept JPG and PNG images only.
+* Automatically resize images on upload.
+* Store resized images in a different bucket or folder.
+* Maintain original file naming with a prefix (e.g., resized_, processed_, thumbnail_).
+* Log execution details in CloudWatch.
+* Handle errors gracefully.
+
+### IAM & Security Requirements are:
+
+* Create a dedicated IAM Role for Lambda.
+* Follow least privilege principle.
+* No use of root credentials.
+* Enable bucket versioning (recommended).
+
+### The required deliverables are:
+
+* Architecture Diagram (draw.io)
+
+* Source Code (Lambda function)
+
+##### Screenshots of:
+
+* S3 buckets
+* Lambda configuration
+* EventBridge rule
+* CloudWatch logs
+* Before & After image comparison
+* README document explaining architecture design, event flow, IAM permissions and challenges faced during this project.
+
+
+#### THE PROJECT'S DEPTH OF EXPERTISE IN SERVICE INTEGRATION ALONG WITH SUCH CONSTAINTS MADE IT A WORTHWHILE PROJECT WHICH HELPED ME TO GAIN VALUABLE EXPERIENCE OF CLOUD SERVICES.
+
+
 ---
 
 
