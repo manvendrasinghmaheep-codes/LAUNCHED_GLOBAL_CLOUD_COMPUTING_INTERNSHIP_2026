@@ -360,10 +360,10 @@ Then CloudWatch error :
 ---
 
 <p align="center">
-  <img src="" width="800"/>
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Lambda%20Code%201.png" width="800"/>
 </p>
 
-<p align="center"><em>Figure 2: AWS Lambda dashboard which shows functions, layers, resources and other metrices.</em></p>
+<p align="center"><em>Figure 2: AWS Lambda code resizing function code which is the brain of whole project.</em></p>
 
 ---
 
@@ -376,26 +376,30 @@ Then CloudWatch error :
 ---
 
 <p align="center">
-  <img src="" width="800"/>
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Lambda%20Code%202.png" width="800"/>
 </p>
 
-<p align="center"><em>Figure 2: AWS Lambda dashboard which shows functions, layers, resources and other metrices.</em></p>
+<p align="center"><em>Figure 2: AWS Lambda image resizer code continued.. .</em></p>
+
+
+* EXPLANATION IS IN CODE SECTION.
+
 
 ---
 
 <p align="center">
-  <img src="" width="800"/>
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Lambda%20Test.png" width="800"/>
 </p>
 
-<p align="center"><em>Figure 2: AWS Lambda dashboard which shows functions, layers, resources and other metrices.</em></p>
+<p align="center"><em>Figure 2: AWS Lambda test code to check working of my function. Its log is attached in screenshot folder of this project.</em></p>
 
 ---
 
 <p align="center">
-  <img src="" width="800"/>
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Permissions%20of%20Lambda.png" width="800"/>
 </p>
 
-<p align="center"><em>Figure 2: AWS Lambda dashboard which shows functions, layers, resources and other metrices.</em></p>
+<p align="center"><em>Figure 2: AWS Lambda permissions tab which ensures it is connected to CLOUDWATCH and S3.</em></p>
 
 ---
 
@@ -415,6 +419,7 @@ Then CloudWatch error :
 
 * Step 6: Then add and save .
 
+---
 
 ### CREATING EVENTBRIDGE RULE
 
@@ -524,6 +529,46 @@ Then CloudWatch error :
 * Step 5: Wait for green check tick tox appearing.
 
 ### STEP BY STEP MEANING OF CODE -
+
+import json
+
+import boto3 from PIL
+
+import Image
+
+import io
+
+import urllib.parse
+
+s3 = boto3.client('s3')
+
+destination_bucket = "manvendra-resize"
+
+def lambda_handler(event, context):
+
+bucket = event['Records'][0]['s3']['bucket']['name']
+key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'])
+
+response = s3.get_object(Bucket=bucket, Key=key)
+image_content = response['Body'].read()
+
+image = Image.open(io.BytesIO(image_content))
+
+image = image.resize((200,200))
+
+buffer = io.BytesIO()
+
+image.save(buffer, "JPEG")
+
+buffer.seek(0)
+
+new_key = "resized-" + key
+
+
+s3.put_object( Bucket=destination_bucket, Key=new_key, Body=buffer, ContentType="image/jpeg" )
+
+return { 'statusCode': 200, 'body': 'Image resized successfully' }
+
 
 ---
 
