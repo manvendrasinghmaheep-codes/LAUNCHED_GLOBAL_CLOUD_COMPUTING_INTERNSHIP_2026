@@ -158,6 +158,8 @@ What makes this workflow remarkable is its efficiency and scalability. The syste
 
 * Recovery
 
+---
+
 <p align="center">
   <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Bucket%20versioning%20ENABLED.png" width="800"/>
 </p>
@@ -179,6 +181,8 @@ What makes this workflow remarkable is its efficiency and scalability. The syste
 
 <p align="center"><em>Figure 2: After successfully creating your both the buckets your dashboard will look like this.</em></p>
 
+---
+
 ### EVENTBRIDGE CONFIGURATION
 
 Firstly, we will enable eventbridge for s3:
@@ -193,7 +197,33 @@ Firstly, we will enable eventbridge for s3:
 
 ##### THIS WILL ENSURE THAT WHENEVER THERE IS A NEW IMAGE UPLOADED IN S3 IT WILL SEND NOTIFICATIONS
 
+---
+
 ### IAM ROLES 
+
+#### ITS GOAL IS TO PROVIDE ACCESS TO SERVICES UPON REQUESTS.
+
+If IAM Role is not provided then:
+
+Lambda will try:
+
+* GetObject from S3
+
+AWS responds with:
+
+* AccessDenied
+
+Then CloudWatch error :
+
+* AccessDeniedException
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/IAM%20Dashboard.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: This is my IAM Dashboard showing security recommendations, resources, users, roles and policies.</em></p>
+
+---
 
 * Step 1: Go to Identity and Access Manangement .
 
@@ -203,12 +233,55 @@ Firstly, we will enable eventbridge for s3:
 
 * Step 4: Attach policies -
 
+-> Amazons3fullaccess.
+
+-> Cloudwatchlogsfullaccess.
 
 * Step 5 - Give role name.
 
 * Step 6: Create role.
 
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/IAM%20Image%20Resizing%20role.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: Image resizing role.</em></p>
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/IAM%20Policy%201.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: p1.</em></p>
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/IAM%20Policy%202.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: p2.</em></p>
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/IAM%20Roles%20List.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: role.</em></p>
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/IAM%20policies%20List.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: policy.</em></p>
+
+
 ### LAMBDA FUNCTION
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Lambda%20Dashboard.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: After successfully creating your both the buckets your dashboard will look like this.</em></p>
+
 
 * Step 1: Go to AWS Lambda.
 
@@ -231,9 +304,30 @@ Firstly, we will enable eventbridge for s3:
 * Click save.
 
 
+### ADDING LAYER
+
+* Step 1: Go to AWS Lambda.
+
+* Step 2: Click on your function.
+
+* Step 3: Scroll down to layer section and click on add a layer.
+
+* Step 4: Choose specify an ARN.
+
+* Step 5: Copy-paste the arn of according to your region and settings.
+
+* Step 6: Then add and save .
 
 
 ### CREATING EVENTBRIDGE RULE
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/EventBridge%20Dashboard.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: EventBridge Dashboard showing resources, metrices along with created rules and groups.</em></p>
+
+---
 
 * Step 1: Go to amazon EventBridge.
 
@@ -248,9 +342,90 @@ Firstly, we will enable eventbridge for s3:
 * Step 6: In targets tab, choose target as lambda function and choose your lambda function.
 
 * Step 7: Create rule.
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Default%20EventBus.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: This is the default EventBus page.</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Target%20to%20lambda.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: This is important trigger page of my event which show target to lambda function.</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Trigger%20Event%20Pattern.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: This is important event pattern section. The rule filters events where the source is Amazon S3 and the detail type is Object Created. When the condition matches, the event triggers the Lambda function which processes the uploaded image.”</em></p>
+
+#### EVENT PATTERN -
+
+ {
+ 
+  "source": ["aws.s3"],
+  
+  "detail-type": ["Object Created"],
+  
+  "detail": {
+  
+    "bucket": {
+    
+      "name": ["manvendra-original"]
+      
+    }
+    
+  }
+  
+}
+
+
+##### MEANING- 
+
+* SOURCE: IT ONLY ALLOWS S3 SOURCE.
+
+* RESTRICTION: BUT IN DETAIL TYPE WE RESTRICTED THAT ONLY OBJECT CREATION WILL BE CONSIDERED.
+
+* NAMING: IT ALLOWS ONLY MY ORIGINAL BUCKET MODIFICATION TRIGGERS.
+
+* IF ANY CONDITION FAIL TRIGGER WILL NOT HAPPEN.
+
+
+---
+
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Rules%20Section.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: The default EventBus successfully shows enabled status to my event.</em></p>
+
+
+---
+
+
 ## FINAL OUTPUT: THE TRIUMPH OF CLOUD
 
 ## CODE: THE LOGIC BEHIND THE LEGEND
+
+* Step 1: Go to AWS Lambda.
+
+* Step 2:Choose your resizing function and choose code tab.
+
+* Step 3: Scroll down a editor will come and remove older code and write your own code.
+
+* Step 4: After completing it click on deploy.
+
+* Step 5: Wait for green check tick tox appearing.
+
 
 ---
 
