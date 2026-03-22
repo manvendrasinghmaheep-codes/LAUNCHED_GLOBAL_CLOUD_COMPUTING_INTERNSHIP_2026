@@ -156,7 +156,7 @@ What makes this workflow remarkable is its efficiency and scalability. The syste
 
 * Audit
 
-*Recovery
+* Recovery
 
 <p align="center">
   <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Bucket%20versioning%20ENABLED.png" width="800"/>
@@ -181,7 +181,73 @@ What makes this workflow remarkable is its efficiency and scalability. The syste
 
 ### EVENTBRIDGE CONFIGURATION
 
-Firstly, we will 
+Firstly, we will enable eventbridge for s3:
+
+* Open your original image bucket.
+
+* Go to properties.
+
+* Scroll down to event notifications.
+
+* Enable 'Send notifications to Amazon EventBridge for all events in this bucket' ON .
+
+##### THIS WILL ENSURE THAT WHENEVER THERE IS A NEW IMAGE UPLOADED IN S3 IT WILL SEND NOTIFICATIONS
+
+### IAM ROLES 
+
+* Step 1: Go to Identity and Access Manangement .
+
+* Step 2: Choose create role from menu.
+
+* Step 3: Select AWS service and choose lambda.
+
+* Step 4: Attach policies -
+
+
+* Step 5 - Give role name.
+
+* Step 6: Create role.
+
+### LAMBDA FUNCTION
+
+* Step 1: Go to AWS Lambda.
+
+* Step 2: Click create function.
+
+* Step 3: Give a suitable name.
+
+* Step 4: Choose runtime as python 3.10 .
+
+* Step 5: Choose architecture as x86_64 if it isn't set as default.
+
+* Step 6: In permissions choose existing role.
+
+* Step 7: Create function.
+
+* Step 8: After creating the function go to configurations and look for general configurations.
+
+* Step 9: Edit and set timeout to 30 seconds or more.
+
+* Click save.
+
+
+
+
+### CREATING EVENTBRIDGE RULE
+
+* Step 1: Go to amazon EventBridge.
+
+* Step 2: Click rules and press create rule.
+
+* Step 3: Give it a suitable name.
+
+* Step 4: Now under event source, choose service as s3 and event type as object created.
+
+* Step 5: Specify the name as your original bucket name.
+
+* Step 6: In targets tab, choose target as lambda function and choose your lambda function.
+
+* Step 7: Create rule.
 ## FINAL OUTPUT: THE TRIUMPH OF CLOUD
 
 ## CODE: THE LOGIC BEHIND THE LEGEND
