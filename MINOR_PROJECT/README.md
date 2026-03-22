@@ -18,7 +18,9 @@ Ultimately, this project represents more than just a technical implementation—
 
 The system must use:
 * Amazon S3
+
 * AWS Lambda
+
 * Amazon EventBridge
 
 #### My task is to build a solution where:
@@ -42,17 +44,25 @@ The system must use:
 The system must:
 
 * Accept JPG and PNG images only.
+
 * Automatically resize images on upload.
+
 * Store resized images in a different bucket or folder.
+
 * Maintain original file naming with a prefix (e.g., resized_, processed_, thumbnail_).
+
 * Log execution details in CloudWatch.
+
 * Handle errors gracefully.
 
 ### IAM & Security Requirements are:
 
 * Create a dedicated IAM Role for Lambda.
+
 * Follow least privilege principle.
+
 * No use of root credentials.
+
 * Enable bucket versioning (recommended).
 
 ### The required deliverables are:
@@ -64,10 +74,15 @@ The system must:
 ##### Screenshots of:
 
 * S3 buckets
+
 * Lambda configuration
+
 * EventBridge rule
+
 * CloudWatch logs
+
 * Before & After image comparison
+
 * README document explaining architecture design, event flow, IAM permissions and challenges faced during this project.
 
 
@@ -121,6 +136,52 @@ What makes this workflow remarkable is its efficiency and scalability. The syste
 
 # IMPLEMENTATION: DEPLOYMENT OF SERVERLESS POWER 
 
+### CREATING S3 BUCKETS
+
+* Step 1: Go to amazon S3 dashboard. 
+
+* Step 2: Click on create bucket. 
+
+* Step 3: Bucket names of your original and resized should be globally unique.
+
+* Step 4: Ensure the region of both of your buckets should be same along with lambda function.
+
+* Step 5: Must enable the versioning.
+
+##### It helps in keeping the multiple versions safe for use. The older files will not get deleted.
+
+* Backup
+
+* Accidental deletion recovery
+
+* Audit
+
+*Recovery
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/Bucket%20versioning%20ENABLED.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 1: After creating your original bucket you must ensure that it's versioning is enabled under properties tab. This prevents accidental overwrites and allows recovery of previous versions if needed.</em></p>
+
+---
+
+
+* Step 6: Keep the rest of the settings as default.
+
+* Step 7:Click on create bucket.
+
+* Step 8: Repeat the same process for second bucket.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MINOR_PROJECT/MINOR_SCREEENSHOTS/S3%20Buckets.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: After successfully creating your both the buckets your dashboard will look like this.</em></p>
+
+### EVENTBRIDGE CONFIGURATION
+
+Firstly, we will 
 ## FINAL OUTPUT: THE TRIUMPH OF CLOUD
 
 ## CODE: THE LOGIC BEHIND THE LEGEND
