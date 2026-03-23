@@ -22,11 +22,11 @@ I have been given a task to -
 
 ### Intent of the chatbot: Book Hotel
 
-* #### 1)All the information must be conveyed to the user after booking the room and
+* #### 1) All the information must be conveyed to the user after booking the room and
 #### must be informed to the user the price of the hotel room and the day of stay.
-* #### 2)Using this chatbot user must be aware of the types of Available rooms
+* #### 2) Using this chatbot user must be aware of the types of Available rooms
 #### (Classic, Duplex, etc)-Choose your own Category as well.
-* #### 3)All events must be in flow for the fulfillment of the intent.
+* #### 3) All events must be in flow for the fulfillment of the intent.
 
 Keeping the given constraints in mind I started my work on creation of this chatbot.
 ---
@@ -82,6 +82,288 @@ The flow is dynamic and adaptive, responding to user inputs in real time while m
 ---
 
 # IMPLEMENTATION: DEPLOYMENT OF MY BOT
+
+## CREATE YOUR BOT
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Dashboard.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 1: AWS LEX Dashboard showing its prices, creation guide and create a bot section from where we will start building out bot.</em></p>
+
+---
+
+#### * FOLLOW THESE STEPS -
+
+* Step 1: Open AWS Lex Console.
+
+* Step 2: Click on create bot.
+
+* Step 3: Out of 3 options given now -
+
+- BASIC BOT
+- EXAMPLE BOT
+- GEN AI BOT
+
+* Choose basic bot. Our bot is a custom booking bot.
+
+* Step 4: IAM ROLE -
+
+Q. Create a role with basic amazon lex permissions.
+
+* CHOOSE ON CREATE A ROLE.
+
+AWS will automatically provide permissions. We can avoid manual IAM setup like minor project.
+
+---
+
+* Step 5: Bot error logs-
+
+* Select enable.
+
+Might help in error debugging.
+
+* Step 6: COMPILANCE ( COPPA )
+
+* Select: NO .
+
+OUR BOT IS FOR THE PURPOSE OF HOTEL BOOKING NOT FOR CHILDREN .
+
+* Step 7: Session timeout -
+
+* Choose 8-10 minutes.
+Users delay booking sometimes.
+
+* Step 8: DISABLE SPEECH TO SPEECH INFERENCE.
+
+WHY -
+
+It helps in avoiding extra configurations and billings.
+
+* Step 9: NOW CREATE YOUR BOT.
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20CHATBOT.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 2: AWS LEX Dashboard now looks like this with you bot name, status and other section of the dashboard.</em></p>
+
+---
+
+## INTENT 
+
+#### * FOLLOW THESE STEPS -
+
+Step 1: Intent name -
+
+THIS IS INTERNAL NAME FOR THE SYSTEM.
+
+* Give your bot a suitable name.
+
+* Step 2: Display name -
+
+This is the name which would be shown on the UI.
+
+Give this a meaningful name and proceed to next section.
+
+Step 3: INTENT UTTERANCE GENERATION DESCRIPTION.
+
+* This is the optional AI helper generational field which helps in generating utterances.
+
+* Give this field a necessary and required prompt for which lex later on might suggest some utterances.
+
+* Step 4: Context section:
+
+* LEAVE IT EMPTY.
+
+Our bot has only one intent which is to book hotel. Hence, we don't require multi-conversational context section which helps in creating advanced bots.
+
+##### * NOW WE MOVE ON TO NEXT SECTION.
+---
+## UTTERANCES 
+
+#### * FIRSTLY, MAKE SURE THAT YOU SLOTS ARE IN THIS ORDER - 
+
+* Room Type -> Check in Date -> Nights of stay.
+
+REASON -
+
+* ##### THIS IS NOT AN ERROR. We just want our bot to behave like real booking bot having natural priority to firstly determine room type and decide the initial costs later then allows customers to select their check in date and nights of stay to stay relevant to real life scenario.
+
+* NOW KEEPING THIS PRIORITY ORDER IN MIND WE PROCEED TO ADD UTTERANCES WHICH ARE TEXT HELPS TO DETERMINE INTENT AND ALLOW BOT TO INTERACT WITH THE USER USING REQUESTS, SEARCHES AND DATA SPECIFIC QUERIES.
+
+* You can create your utterances based on your choice or communication preferences or use my utterances. You can also add some on mine too.
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Utterances%201.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 3: Boooking requests related utterances that triggers out chatbot main intent and the conversation proceeds from here.</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Utterances%202.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 4: Check in date and total night stay relevant utterances which deals with date and duration of stay for the user.</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Utterances%203.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 5: Room type related utterances which gets more detailed information from the user and now after completing all basic required fields the user can proceed to confirm and book the chosen room. I have chosen in total 23 diverse utterances to handle natural language of the user.</em></p>
+
+---
+
+
+##### NOW WE MOVE ON TO NEXT SECTION.
+
+---
+
+## SLOTS
+
+* DON'T FORGET LOGICAL PRIORITY ORDER FOR HOTEL BOOKING.
+
+-> Select add slot.
+
+ ##### SLOT 1:
+
+* Step 1: On the left panel, click on Slot types.
+
+* Step 2: Click create slot and this is your room type slot.
+
+* Step 3: Add optional description.
+
+* Step 4: In the values section add the different types of rooms of hotel based on costs.
+
+* Step 5: Click save.
+
+---
+
+* Step 6: Go back to your intent.
+
+* Step 7: Now, in slot section you should see your newly created slot then select it.
+
+* Step 8: Add a relevant prompt.
+
+* Step 9: Select slot required on and save it.
+
+---
+
+ ##### SLOT 2:
+
+* Step 1: Go to slots and choose add a slot.
+
+* Step 2: This is your check in date slot.
+
+* Step 3: In slot type choose amazon.date .
+
+* Step 4: Provide a relevant prompt.
+
+---
+
+ ##### SLOT 3:
+
+* Step 1: Go to slots and choose add a slot.
+
+* Step 2: This is your night stay slot.
+
+* Step 3: In slot type choose amazon.number .
+
+* Step 4: Provide a relevant prompt.
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Slots.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 6: You can check that my chatbot has priority order in descending oder from top as confirming the room first is more relevant than asking stay period or date of check in.</em></p>
+
+---
+
+
+## CONFIRMATION PROMPT 
+
+THIS IS A NECESSARY FIELD OF OUR PROJECT.
+
+-> THIS IS IN DIRECTION OF OUR INTENT.
+
+* User will be informed that his/her room is booked and now they can proceed further.
+
+* It has two parts confirmation and decline.
+
+* -> As the name suggests, confirmation is used before booking and decline is used if user opts for exit.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Confirmation.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 7: This part can make our bot looks highly skilled and trained to deal with both professionalism and user friendly nature.</em></p>
+
+---
+
+* Provide suitable relevant prompt and proceed to next section.
+
+---
+
+## INITIAL RESPONSE
+
+-> THIS IS ALSO RELEVANT FOR OUR PROJECT. 
+
+* -> THIS FIELD GETS TRIGGERED WHEN INTENT IS DISPLAYED BY THE USER IN CONVERSATION.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Initial%20Response.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 8: Warm and friendly start to the conversation in the direction of out intent. Provide a knowledgeable start.</em></p>
+
+---
+
+* -> Provide necessary warm and friendly initial input and then proceed to next section.
+
+---
+
+## FULFILLMENT
+
+-> AWS LEX has fallback messages for this section.
+
+It has two parts - confirmation and decline.
+
+##### Similar to confirmation section we proceed by providing necessary inputs to stay close to our real life simulation of hotel booking.
+
+###### Now, we  move on to next section.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Fullfillment.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 9: Provide a professional response like a real receptionist.</em></p>
+
+
+---
+
+## CLOSING RESPONSE
+
+-> After the end of the conversation out bot provides closing response to thank the user who chose it to book room using our lex chat bot.
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/LEX%20Closing%20Response.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 10: Provide a inviting and courteous ending message to the user.</em></p>
+
+---
+
+### -> Provide a nice ending to the conversation with the user.
 
 ---
 
