@@ -375,6 +375,81 @@ Testing also involved verifying slot extraction, intent recognition, and confirm
 
 ---
 
+## CONVERSATION MODEL -
+
+* Utterances -> Intent detection
+
+* Intent -> Slots Collection
+
+* Slots -> Confirmation
+
+* Confirmation -> Fullfillment
+
+* Fullfillment -> Closing response
+
+---
+
+#### PAY ATTENTION TO RIGHT SIDE OF THE IMAGES -
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/CHATBOT%20TEST1.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 11: The user initiated the conversation by showing the intent that he wants to book a hotel room. After which our bot started slots collection starting from room type.</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/CHATBOT%20TEST2.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 12: After that our bot proceeds to enquire about check in date and total nights of stay.</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/CHATBOT%20TEST3.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 13: Now after collecting all the required data the bot moves towards the last stage of confirmation..</em></p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/manvendrasinghmaheep-codes/LAUNCHED_GLOBAL_CLOUD_COMPUTING_INTERNSHIP_2026/blob/main/MAJOR_PROJECT/MAJJOR_SCREENSHOT/CHATBOT%20TEST4.png" width="800"/>
+</p>
+
+<p align="center"><em>Figure 14: To which the user given consent and thus our bot provided fullfillment and nice closing response.</em></p>
+
+---
+
+### CONVERSATION FINAL WORK FLOW
+
+* User → Book a room
+
+* Bot → Welcome message
+
+* Bot → What type of room would you like?
+
+* User → Classic
+
+* Bot → What day would you like to check in?
+
+* User → 25 March
+
+* Bot → How many nights will you stay?
+
+* User → 2
+
+* Bot → Please confirm your booking
+
+* User → Yes
+
+* Bot → Booking confirmed
+* Bot → Closing response
+
+---
+
 # CONCLUSION: THE LEGACY OF A CLOUD ARCHITECT
 
 The completion of this major project marks a defining moment in my cloud computing journey. It represents not just the development of a chatbot, but the evolution of my understanding of how intelligent systems are designed, built, and refined. From handling simple cloud resources to creating an interactive, user-focused application, this project reflects my growth as a developer and problem solver.
